@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "wxFC0Kx4zO9eG5C0V9tuyMt30zcaa8R/LXtEecfuopc=",
+  "Source": "meetings-app-server",
+  "BasePath": "_content/meetings-app-server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

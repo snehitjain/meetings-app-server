@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\meetings-app-server.props" />
+</Project>
