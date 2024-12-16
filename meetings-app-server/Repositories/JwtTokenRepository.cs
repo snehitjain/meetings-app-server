@@ -23,6 +23,9 @@ public class JwtTokenRepository : ITokenRepository
         var claims = new List<Claim>();
 
         claims.Add(new Claim(ClaimTypes.Email, user.Email));
+        claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id)); // This adds the user ID to the token
+        claims.Add(new Claim(ClaimTypes.Name, user.UserName));      // Add other user claims like Name or Role if necessary
+        claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
 
         //foreach (var role in roles)
         //{
@@ -36,7 +39,7 @@ public class JwtTokenRepository : ITokenRepository
         var token = new JwtSecurityToken(
             configuration["Jwt:Issuer"],
             configuration["Jwt:Audience"],
-            claims,
+            claims ,
             expires: DateTime.Now.AddDays(7),
             signingCredentials: credentials);
 

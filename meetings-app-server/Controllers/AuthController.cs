@@ -31,20 +31,11 @@ public class AuthController : ControllerBase
 
         var identityResult = await userManager.CreateAsync(identityUser, registerRequestDto.Password);
 
-        //if (identityResult.Succeeded)
-        //{
-        //    // Add roles to this User
-        //    if (registerRequestDto.Roles != null && registerRequestDto.Roles.Any())
-        //    {
-        //        identityResult = await userManager.AddToRolesAsync(identityUser, registerRequestDto.Roles);
-
                 if (identityResult.Succeeded)
                 {
                     return Ok("User was registered! Please login.");
                 }
-        //    }
-        //}
-
+     
         return BadRequest(identityResult.Errors);
     }
     // POST: /api/Auth/Login
@@ -60,14 +51,7 @@ public class AuthController : ControllerBase
 
             if (checkPasswordResult)
             {
-                // Get Roles for this user
-                //var roles = await userManager.GetRolesAsync(user);
-
-                //if (roles != null)
-                //{
-                //    // Create Token
-
-                //var authToken = tokenRepository.CreateJWTToken(user.ToList())
+               
                var authToken = tokenRepository.CreateJWTToken(user);
 
 
@@ -75,11 +59,9 @@ public class AuthController : ControllerBase
                     {
                         AuthToken = authToken,
                         Email = user.Email,
-                //        //Role = roles[0]
                     };
 
                     return Ok(response);
-                //}
             }
         }
 

@@ -8,12 +8,20 @@ namespace meetings_app_server.Mapping
     {
         public  AutoMapperProfiles()
         {
-            CreateMap<Meeting, MeetingDto>();
+            CreateMap<Meeting, MeetingDto>().ReverseMap();
             //.ForMember(dest => dest.StartTime, opt => opt.MapFrom(src => src.StartTime.ToString("HH:mm")))
             //.ForMember(dest => dest.EndTime, opt => opt.MapFrom(src => src.EndTime.ToString("HH:mm")));
 
-            CreateMap<Attendee, MeetingAttendees>();
-           
+            CreateMap<Attendee, MeetingAttendees>()
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))  // Map User's Email
+                 .ReverseMap();
+
+            CreateMap<Attendee, MeetingAttendees2>()
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))  // Map User's Email
+                 .ReverseMap();
+
+            //CreateMap<AddAttendeeRequest, Attendee>().ReverseMap();
+
 
         }
         

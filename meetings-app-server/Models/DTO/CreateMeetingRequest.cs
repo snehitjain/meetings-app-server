@@ -7,7 +7,12 @@ public class CreateMeetingRequest
     public DateTime Date { get; set; }
     public TimeOnly StartTime { get; set; }
     public TimeOnly EndTime { get; set; }
-    public List<string> Attendees { get; set; }  // List of userIds for attendees
+    public ICollection<MeetingAttendees2> Attendees { get; set; }
 }
+public class MeetingAttendees2
+{
 
+    public string Email { get; set; }
+    //public string UserId { get; set; }
 
+}

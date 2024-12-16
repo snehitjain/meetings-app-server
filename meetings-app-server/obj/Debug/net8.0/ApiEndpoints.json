@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "meetings_app_server.Controllers.AddAttendeeRequest",
+        "Type": "meetings_app_server.Models.DTO.AddAttendeeRequest",
         "IsRequired": true
       }
     ],
@@ -25,7 +25,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "meetings_app_server.Controllers.RemoveAttendeeRequest",
+        "Type": "meetings_app_server.Models.DTO.RemoveAttendeeRequest",
         "IsRequired": true
       }
     ],
@@ -41,7 +41,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[meetings_app_server.Models.DTO.UserWithMeetingsDto, meetings-app-server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -128,26 +128,6 @@
         "IsRequired": false
       },
       {
-        "Name": "filterOn",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "filterQuery",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "sortBy",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "isAscending",
-        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
         "Name": "pageNumber",
         "Type": "System.Int32",
         "IsRequired": false
@@ -181,7 +161,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "meetings_app_server.Models.Domain.Meeting",
+        "Type": "meetings_app_server.Models.DTO.MeetingDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
