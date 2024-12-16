@@ -93,7 +93,7 @@ namespace meetings_app_server.Controllers
 
             _context.Attendees.Add(attendee);
             await _context.SaveChangesAsync();
-                    
+
             var meetingDto = _mapper.Map<MeetingDto>(meeting);
             return CreatedAtAction(nameof(GetMeeting), new { id = meeting.Id }, meetingDto);
         }
@@ -193,7 +193,86 @@ namespace meetings_app_server.Controllers
 
             return Ok(result);
         }
-        
+
+        // DELETE /api/Meetings/DeleteMeeting/{id}
+        [HttpDelete("DeleteMeeting/{id}")]
+        public async Task<ActionResult> DeleteMeeting(int id)
+        {
+            // Get the current user
+            var user = await _userManager.GetUserAsync(User);
+            var userId = user.Id;
+
+            if (userId == null)
+            {
+                return Unauthorized("User not authenticated.");
+            }
+
+            // Define the super user ID (you could also use a role check here)
+            var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+            // Find the meeting by ID
+            var meeting = await _context.Meetings.FindAsync(id);
+
+            // Check if the meeting exists
+            if (meeting == null)
+            {
+                return NotFound("Meeting not found.");
+            }
+
+            // Check if the current user is the super user
+            if (userId != superUserId)
+            {
+                return Forbid("You are not authorized to delete this meeting.");
+            }
+
+            // Remove the meeting from the database
+            _context.Meetings.Remove(meeting);
+
+            try
+            {
+                // Save changes to the database
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                // Handle potential errors
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
+
+            // Return NoContent status indicating successful deletion
+            return Ok($"Meeting {id} deleted successfully");
+        }
+
+        // GET: api/AllMeetings
+        [HttpGet("AllMeetings")]
+        public async Task<ActionResult<IEnumerable<MeetingDto>>> GetAllMeetings()
+        {
+            // Get the current user
+            var user = await _userManager.GetUserAsync(User);
+            var userId = user.Id;
+
+            if (user == null)
+            {
+                return Unauthorized("User not authenticated.");
+            }
+
+            // Define the super user ID (you could also use a role check here)
+            var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+
+            // Check if the current user is the super user
+            if (userId != superUserId)
+            {
+                return Forbid("You are not authorized to view all meetings.");
+            }
+
+            // Retrieve all meetings from the database
+            var meetings = await _context.Meetings.ToListAsync();
+
+            // Map to DTOs for better abstraction
+            var meetingDtos = _mapper.Map<List<MeetingDto>>(meetings);
+
+            // Return the list of meetings
+            return Ok(meetingDtos);
+        }
     }
 }
 

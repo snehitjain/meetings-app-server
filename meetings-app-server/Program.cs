@@ -9,11 +9,9 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using meetings_app_server.CustomConverter;
 using meetings_app_server.Mapping;
+using System.Buffers.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-
 
 
 // Configure DB service
@@ -95,6 +93,26 @@ builder.Services.AddSwaggerGen(options =>
             },
             new List<string>()
         }
+    });
+    // Retrieve the SuperUserId directly from configuration (appsettings.json)
+    var superUserId = builder.Configuration["SuperUserSettings:SuperUserId"];
+
+    // Conditionally hide endpoints based on SuperUserId check
+    options.DocInclusionPredicate((docName, apiDescription) =>
+    {
+        var userId = ""; // You may need to retrieve the current user's ID based on the authentication context.
+
+        // Here, we're assuming you have the user's ID from the current authentication context, this needs to be handled based on how you're authenticating users
+        if (userId != superUserId)
+        {
+            // Hide specific endpoints when user is not a super user
+            if (apiDescription.RelativePath.Contains("AllMeetings") || apiDescription.RelativePath.Contains("DeleteMeeting/{id}"))
+            {
+                return false; // Don't show these endpoints for non-super users
+            }
+        }
+
+        return true; // Show the endpoint for super users
     });
 });
 // Add other services and controllers
