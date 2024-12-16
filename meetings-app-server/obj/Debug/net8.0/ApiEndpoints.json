@@ -1,5 +1,57 @@
 [
   {
+    "ContainingType": "meetings_app_server.Controllers.AttendeeController",
+    "Method": "AddAttendee",
+    "RelativePath": "api/Attendee/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "meetings_app_server.Controllers.AddAttendeeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "meetings_app_server.Controllers.AttendeeController",
+    "Method": "RemoveAttendee",
+    "RelativePath": "api/Attendee/Remove",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "meetings_app_server.Controllers.RemoveAttendeeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "meetings_app_server.Controllers.AttendeeController",
+    "Method": "GetUsers",
+    "RelativePath": "api/Attendee/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Microsoft.AspNetCore.Identity.IdentityUser, Microsoft.Extensions.Identity.Stores, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "meetings_app_server.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/Login",
@@ -33,15 +85,21 @@
   },
   {
     "ContainingType": "meetings_app_server.Controllers.MeetingsController",
-    "Method": "GetMeetings",
+    "Method": "AddMeeting",
     "RelativePath": "api/Meetings",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "meetings_app_server.Models.DTO.CreateMeetingRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[meetings_app_server.Models.Domain.Meeting, meetings-app-server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "meetings_app_server.Models.Domain.Meeting",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -53,24 +111,85 @@
   },
   {
     "ContainingType": "meetings_app_server.Controllers.MeetingsController",
-    "Method": "AddAttendee",
-    "RelativePath": "api/Meetings/{meetingId}/attendees",
-    "HttpMethod": "POST",
+    "Method": "GetMeetings",
+    "RelativePath": "api/Meetings",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "meetingId",
-        "Type": "System.Int32",
-        "IsRequired": true
+        "Name": "period",
+        "Type": "System.String",
+        "IsRequired": false
       },
       {
-        "Name": "userId",
+        "Name": "search",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "filterOn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "filterQuery",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isAscending",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "_embed",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "meetings_app_server.Controllers.MeetingsController",
+    "Method": "GetMeeting",
+    "RelativePath": "api/Meetings/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "meetings_app_server.Models.Domain.Meeting",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "meetings_app_server.Controllers.WeatherForecastController",

@@ -140,3 +140,4 @@ C:\Users\snehit.jain\source\repos\meetings-app-server\meetings-app-server\obj\De
 C:\Users\snehit.jain\source\repos\meetings-app-server\meetings-app-server\obj\Debug\net8.0\meetings-app-server.pdb
 C:\Users\snehit.jain\source\repos\meetings-app-server\meetings-app-server\obj\Debug\net8.0\meetings-app-server.genruntimeconfig.cache
 C:\Users\snehit.jain\source\repos\meetings-app-server\meetings-app-server\obj\Debug\net8.0\ref\meetings-app-server.dll
+C:\Users\snehit.jain\source\repos\meetings-app-server\meetings-app-server\obj\Debug\net8.0\meetings-app-server.sourcelink.json

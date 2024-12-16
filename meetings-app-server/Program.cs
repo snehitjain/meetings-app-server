@@ -1,3 +1,4 @@
+using meetings_app_server.Controllers;
 using meetings_app_server.Data;
 using meetings_app_server.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,13 +7,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using meetings_app_server.CustomConverter;
+using meetings_app_server.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+
 
 
 // Configure DB service
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlite("Data Source=app.db"));
+
 
 // Add Identity services
 //builder.Services.AddIdentity<IdentityUser, IdentityRole>()
@@ -93,6 +100,16 @@ builder.Services.AddSwaggerGen(options =>
 // Add other services and controllers
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
+// Add controllers
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Register custom TimeOnly JSON converter
+        options.JsonSerializerOptions.Converters.Add(new TimeOnlyJsonConverter());
+    });
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 var app = builder.Build();
 
