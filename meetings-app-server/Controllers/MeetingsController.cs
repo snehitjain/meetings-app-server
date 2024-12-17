@@ -21,12 +21,15 @@ namespace meetings_app_server.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IConfiguration _configuration;
 
-        public MeetingsController(ApplicationDbContext context, IMapper mapper, UserManager<IdentityUser> userManager)
+        public MeetingsController(ApplicationDbContext context, IMapper mapper, UserManager<IdentityUser> userManager, IConfiguration configuration)
         {
             _context = context;
             _mapper = mapper;
             _userManager = userManager;
+            _configuration = configuration;
+
         }
 
 
@@ -208,7 +211,9 @@ namespace meetings_app_server.Controllers
             }
 
             // Define the super user ID (you could also use a role check here)
-            var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+            //var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+            var superUserId = _configuration["SuperUserSettings:SuperUserId"];
+
             // Find the meeting by ID
             var meeting = await _context.Meetings.FindAsync(id);
 
@@ -256,7 +261,9 @@ namespace meetings_app_server.Controllers
             }
 
             // Define the super user ID (you could also use a role check here)
-            var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+            //var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+            var superUserId = _configuration["SuperUserSettings:SuperUserId"];
+
 
             // Check if the current user is the super user
             if (userId != superUserId)
