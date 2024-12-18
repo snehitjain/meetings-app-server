@@ -134,16 +134,20 @@ namespace meetings_app_server.Controllers
         [HttpGet]
         public async Task<IActionResult> GetMeetings(
         [FromQuery] string period = "all",
-        [FromQuery] string search = "",
+        [FromQuery] string searchByDesc = "",
+        [FromQuery] string searchByName = "",
+        [FromQuery] DateTime? searchDate = null
         //[FromQuery] string filterOn = null,
         //[FromQuery] string filterQuery = null,
         //[FromQuery] string sortBy = null,
         //[FromQuery] bool? isAscending = true,
-        [FromQuery] int pageNumber = 1,
-        [FromQuery] int pageSize = 1000,
-        [FromQuery] string _embed = ""
+        //[FromQuery] int pageNumber = 1,
+        //[FromQuery] int pageSize = 1000
+        
         )
         {
+            var pageNumber = 1;
+            var  pageSize = 1000;
             var userId = await _userManager.GetUserAsync(User);
             //Console.WriteLine("User ID from token: " + userId);
 
@@ -167,12 +171,23 @@ namespace meetings_app_server.Controllers
             else if (period == "future")
                 query = query.Where(m => m.Date > now);
 
+            // Apply custom date range filtering if provided
+            if (searchDate.HasValue)
+            {
+                query = query.Where(m => m.Date >= searchDate.Value); // Filter meetings starting from startDate
+            }
 
             // Apply search filtering on the description field
-            if (!string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(searchByDesc))
                 //query = query.Where(m => m.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
-                query = query.Where(m => m.Description.ToLower().Contains(search.ToLower()));
+                query = query.Where(m => m.Description.ToLower().Contains(searchByDesc.ToLower()));
 
+            // Apply search filtering (description or meeting name)
+            if (!string.IsNullOrEmpty(searchByName))
+            {
+                // Filter by name (case-insensitive)
+                query = query.Where(m => m.Name.ToLower().Contains(searchByName.ToLower()));
+            }
 
 
             // Pagination: Skip and Take

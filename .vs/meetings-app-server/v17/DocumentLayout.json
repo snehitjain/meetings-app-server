@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|solutionrelative:meetings-app-server\\controllers\\meetingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|c:\\users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|solutionrelative:meetings-app-server\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|c:\\users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|solutionrelative:meetings-app-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|c:\\users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|solutionrelative:meetings-app-server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C30B8EB-550B-4082-BAEA-49B1090C6469}|meetings-app-server\\meetings-app-server.csproj|c:\\users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -22,20 +30,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "meetings-app-server\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "meetings-app-server\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T04:23:19.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Program.cs",
               "RelativeDocumentMoniker": "meetings-app-server\\Program.cs",
               "ToolTip": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Program.cs",
               "RelativeToolTip": "meetings-app-server\\Program.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAGIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAHsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T19:15:47.493Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-12-17T11:32:19.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "meetings-app-server\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "meetings-app-server\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T05:50:41.766Z",
               "EditorCaption": ""
             },
             {
@@ -44,24 +77,25 @@
               "Title": "MeetingsController.cs",
               "DocumentMoniker": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Controllers\\MeetingsController.cs",
               "RelativeDocumentMoniker": "meetings-app-server\\Controllers\\MeetingsController.cs",
-              "ToolTip": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Controllers\\MeetingsController.cs*",
-              "RelativeToolTip": "meetings-app-server\\Controllers\\MeetingsController.cs*",
-              "ViewState": "AgIAAPUAAAAAAAAAAAAuwAIBAAAMAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\Controllers\\MeetingsController.cs",
+              "RelativeToolTip": "meetings-app-server\\Controllers\\MeetingsController.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAAwJUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T19:29:59.42Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\appsettings.json",
               "RelativeDocumentMoniker": "meetings-app-server\\appsettings.json",
               "ToolTip": "C:\\Users\\snehit.jain\\source\\repos\\meetings-app-server\\meetings-app-server\\appsettings.json",
               "RelativeToolTip": "meetings-app-server\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-16T19:25:57.844Z"
+              "WhenOpened": "2024-12-16T19:25:57.844Z",
+              "EditorCaption": ""
             }
           ]
         }

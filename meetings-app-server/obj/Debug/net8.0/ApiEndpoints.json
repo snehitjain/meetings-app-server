@@ -123,23 +123,18 @@
         "IsRequired": false
       },
       {
-        "Name": "search",
+        "Name": "searchByDesc",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "_embed",
+        "Name": "searchByName",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "searchDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
