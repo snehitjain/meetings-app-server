@@ -174,7 +174,7 @@ namespace meetings_app_server.Controllers
             // Apply custom date range filtering if provided
             if (searchDate.HasValue)
             {
-                query = query.Where(m => m.Date >= searchDate.Value); // Filter meetings starting from startDate
+                query = query.Where(m => m.Date == searchDate.Value); // Filter meetings starting from startDate
             }
 
             // Apply search filtering on the description field
@@ -218,15 +218,16 @@ namespace meetings_app_server.Controllers
         {
             // Get the current user
             var user = await _userManager.GetUserAsync(User);
-            var userId = user.Id;
-
-            if (userId == null)
+            if (user == null)
             {
                 return Unauthorized("User not authenticated.");
             }
+            var userId = user.Id;
+
+          
 
             // Define the super user ID (you could also use a role check here)
-            //var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+            //var superUserId = "a28a5343-aea5-4cc8-9ff1-091ddf6194f7";
             var superUserId = _configuration["SuperUserSettings:SuperUserId"];
 
             // Find the meeting by ID
@@ -268,18 +269,18 @@ namespace meetings_app_server.Controllers
         {
             // Get the current user
             var user = await _userManager.GetUserAsync(User);
-            var userId = user.Id;
 
             if (user == null)
             {
                 return Unauthorized("User not authenticated.");
             }
 
+
+            var userId = user.Id;
             // Define the super user ID (you could also use a role check here)
-            //var superUserId = "9cd6fd73-790b-41eb-ab9c-8ef44647b78e";
+            //var superUserId = "a28a5343-aea5-4cc8-9ff1-091ddf6194f7";
             var superUserId = _configuration["SuperUserSettings:SuperUserId"];
-
-
+                                    
             // Check if the current user is the super user
             if (userId != superUserId)
             {
